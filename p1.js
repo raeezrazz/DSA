@@ -1,52 +1,83 @@
-class Node{
-    constructor(data){
-        this.data = data
-        this.next = null
-        this.prev=null
-    }
-}
-class Que{
-    constructor(){
-        this.head =null
-        this.tail = null
-        this.size = 0
-      
-    }
+// class Stack{
+//     constructor(){
+//         this.item = []
+//     }
+//     push(val){
+//         this.item.push(val)
+//     }
+//     pop(){
 
-    enqeue(data){
+//         if(this.isEmpty()){
+//             console.log("stack is empty")
+//         }else{
+//         return this.item.pop()
+//         }
+//     }
+//     peek(){
+//         if(this.isEmpty()){
+//             console.log("stack is empty")
+//         }else{
+//         return this.item[this.items.length-1]
+//         }
+//     }
+//     print(){
+        
+//         for(let i = 0 ; i < this.item.length ;  i++){
+//           console.log(this.item[i])  
+//         }
+//     }
+//     isEmpty(){
+//         return this.item.length ===0
+//     }
+//     size(){
+//         return this.item.length
+//     }
+//     clear(){
+//         this.item=[]
+//     }
+// }
+// const stack = new Stack()
+// stack.push(45)
+// stack.push(4)
+// stack.push(5)
+// stack.print()
+// console.log("...........")
+// stack.pop()
+// stack.print()
 
-        let node= new Node(data)
-        if(this.size==0){
-            this.head =node
-            this.tail = node
-        }else{
-            this.tail.next = node
-            this.tail = node
-        }
-        this.size ++
-    }
-    deqeue(){
-        let curr =this.head
-        for(let i = 0; i < this.size -2 ; i ++){
-            curr = curr.next
-        }
-        this.tail = curr
-        this.size --
+
+
+/////////////////////// USING LINKED LIST //////////////////////////
+
+class Node {
+    constructor(value){
+        this.value = value;
+        this.next = null;
         
     }
-    print(){
-        let curr = this.head
-        while(curr){
-            console.log(curr.data)
-            curr = curr.next
+}
+    class Stack {
+        constructor(){
+            this.top = null
+            this.size = 0
+        }
+
+        push(val){
+            const node = new Node()
+            if(this.size ===0){
+                this.top = node
+            }else{
+                this.top.next = node
+                this.top = node
+            }
+            this.size++
+        }
+        pop(){
+            this.
         }
     }
-}
-const stack = new Que()
-stack.enqeue(10)
-stack.enqeue(20)
-stack.enqeue(30)
-stack.print()
-console.log("..........")
-stack.deqeue()
-stack.print()
+
+
+/////////////////////// QUEUE //////////////////////////
+
+
