@@ -112,10 +112,13 @@ class hashTable{
         if(bucket){
            let same = bucket.find(item=>item[0]==key)
            if(same){
-            
-           }
-        }else{
-        
+            same[1]=val
+           }else{
+            same.push([key,val])
+        }
+        }
+        this.get(key){
+    
         }
 
     }
