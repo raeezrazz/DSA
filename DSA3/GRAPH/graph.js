@@ -53,7 +53,7 @@ class Graph{
         if(!this.adjacenecyList[vertex]){
             return false
         }
-        for(let adjacentVertex of this.adjacenecyList[vertex]){
+        for(let adjacentVertex  of this.adjacenecyList[vertex]){
             this.removeEdge(vertex,adjacentVertex)
         }
     }
@@ -81,4 +81,5 @@ graph.addEdge('B','C')
 graph.display()
 console.log(graph.hasEdge('A','h'))
 graph.print()
-graph.removeEdge
+graph.removeVertex('B')
+graph.print()
