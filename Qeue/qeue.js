@@ -11,7 +11,7 @@ class Node {
   class qList {
     constructor() {
       this.head = null
-      this.tail = null
+      this.tail = null6
       this.size = 0
     }
   

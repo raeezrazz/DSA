@@ -107,23 +107,53 @@ class Trie{
     let curr = this.root;
     for(let char of word){
         if(!curr.children[char]){
-            this.root.children[char]=new Node()
+            curr.children[char]=new Node()
         }
         curr=curr.children[char]
     }
-    curr.isEnd=truec
+    curr.isEnd=true
     
   }
 
   display(root=this.root,prefix=''){
-    if(!root){
+    if(root.isEnd){
         console.log(prefix)
     }
-   for(let char of root.children){
+   for(let char in root.children){
     this.display(root.children[char],prefix+char)
    }
   }
+
+  delete(word){
+    this.deleteHelper(this.root,word,0)
+  }
+
+  deleteHelper(root,word,level){
+    if(word.length===level){
+        if(root.isEnd){
+            root.isEnd=false
+        }
+        return Object.keys(root.children).length===0
+    }
+
+    let child= root.children[word[level]]
+
+    if(!child){
+        return false
+    }
+    let deleted= this.deleteHelper(child,word,level+1)
+
+    if(deleted){
+        delete root.children[word[level]]
+        if(Object.keys(root.children).length===0 && !child.isEnd){
+            return true
+        }
+    }
+    return false
+  }
+
 }
+
 
 const trie = new Trie()
 
@@ -132,4 +162,6 @@ trie.insert("wpwmwmwm")
 trie.insert("wpwmwdfdgfhmwm")
 
 trie.display()
-
+console.log("lllllllllllllllllllllllllllllllllll")
+console.log(trie.delete('words'))
+trie.display()

@@ -27,16 +27,16 @@ search(word){
         }
         curr=curr.children[val]
     }
-    return trueZ
+    return true
 }
-display(root= this.root,prefix=''){
-    if(root.isEnd){
-        console.log(prefix);
-    }
-    for(let char in root.children){
-        this.display(root.children[char],prefix+char);
-    }
-}
+// display(root= this.root,prefix=''){
+//     if(root.isEnd){
+//         console.log(prefix);
+//     }
+//     for(let char in root.children){
+//         this.display(root.children[char],prefix+char);
+//     }
+// }
 startWithPrefix(word){
     let curr =this.root;
     for(let val of word){
@@ -72,11 +72,25 @@ deleteHelper(root,word,level){
     return false
 }
 
+display(root=this.root,prefix=''){
+    if(root.isEnd){
+        console.log(prefix)
+    }
+    for(let char in root.children){
+        this.display(root.children[char],prefix+char)
+    }
+}
 }
 
 const trie = new Trie();
 
 trie.insert("apple");
 trie.insert("apples");
-
-trie.display()
+trie.insert("banana");
+trie.insert("car");
+trie.insert("cat");
+trie.insert("catering");
+trie.insert("caterpillar");
+// trie.display()
+trie.startWithPrefix("cat")
+// console.log(trie.delete("cat"))   
