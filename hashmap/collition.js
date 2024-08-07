@@ -4,7 +4,8 @@
 //         this.size = size 
 //     } 
  
-//     hash(key) { 
+//     hash(key) {
+    //
  
 //         let hashedVal = 0; 
  
